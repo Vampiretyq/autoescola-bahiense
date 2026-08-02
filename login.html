@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal do Aluno — Auto Escola Bahiense</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Auto Escola<br><span class="sub" style="margin-left:35px;">BAHIENSE</span></a>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Nos conheça</a>
+      <a href="index.html#planos">Cursos e preços</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-ghost">Voltar ao site</a>
+    </div>
+    <button class="nav-toggle" aria-label="menu">☰</button>
+  </nav>
+</header>
+
+<div id="login-wrap" class="login-wrap">
+  <div class="login-card">
+    <div class="logo"><span class="logo-mark"></span>Bahiense</div>
+    <h1>Portal do Aluno</h1>
+    <p class="sub-txt">Acompanhe suas aulas, seu progresso e seus pagamentos.</p>
+
+    <form id="login-form" novalidate>
+      <div class="field" id="field-user">
+        <label for="user">CPF</label>
+        <input type="text" id="user" placeholder="000.000.000-00">
+        <span class="field-error">Digite seu CPF.</span>
+      </div>
+      <div class="field" id="field-pass">
+        <label for="pass">SENHA</label>
+        <input type="password" id="pass" placeholder="••••••••">
+        <span class="field-error">CPF ou senha incorretos.</span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+    </form>
+    <p style="font-size:12px;color:var(--fog-faint);margin-top:14px;text-align:center;">Aluno de teste: CPF 12345678900 · senha demo123</p>
+
+    <div class="login-links">
+      <a href="https://wa.me/5521996756099?text=Ol%C3%A1!%20Esqueci%20minha%20senha%20do%20portal%20do%20aluno." target="_blank" rel="noopener">Esqueci minha senha</a>
+      <a href="https://wa.me/5521996756099?text=Ol%C3%A1!%20Ainda%20n%C3%A3o%20sou%20aluno%20e%20quero%20me%20matricular." target="_blank" rel="noopener">Ainda não sou aluno</a>
+    </div>
+
+    <div class="login-divider">ou</div>
+    <a href="https://wa.me/5521996756099?text=Ol%C3%A1!%20Quero%20me%20matricular%20na%20Auto%20Escola%20Bahiense." target="_blank" rel="noopener" class="btn btn-whats btn-block">Falar com a secretaria no WhatsApp</a>
+  </div>
+</div>
+
+<div id="portal" class="portal">
+  <div class="wrap" style="padding:60px 20px;">
+    <div class="portal-card">
+      <div class="portal-top">
+        <div>
+          <h2 id="portal-greet">Bem-vindo(a)!</h2>
+          <div class="greet" id="portal-sub">—</div>
+        </div>
+        <button id="logout-btn" class="btn btn-ghost">Sair</button>
+      </div>
+
+      <div class="dash-progress">
+        <div class="dash-progress-top"><span class="who">Seu progresso</span><span class="pct" id="portal-pct">0%</span></div>
+        <div class="bar"><div class="bar-fill" id="portal-bar" style="width:0%;"></div></div>
+      </div>
+
+      <div class="dash-stats" style="margin-top:22px;">
+        <div class="stat-card"><div class="num yellow" id="portal-done">0</div><div class="lbl">aulas concluídas</div></div>
+        <div class="stat-card"><div class="num" id="portal-left">0</div><div class="lbl">aulas restantes</div></div>
+        <div class="stat-card"><div class="num green">Ok</div><div class="lbl">docs. DETRAN</div></div>
+      </div>
+
+      <div style="margin-top:22px;">
+        <div class="dash-list-title">Suas aulas</div>
+        <div id="portal-lessons"></div>
+      </div>
+
+      <a href="https://wa.me/5521996756099?text=Ol%C3%A1!%20Sou%20aluno%20e%20preciso%20remarcar%20uma%20aula." target="_blank" rel="noopener" class="btn btn-whats btn-block" style="margin-top:26px;">Falar com a secretaria</a>
+    </div>
+  </div>
+</div>
+
+<footer style="border-top:1px solid var(--asphalt-line);">
+  <div class="wrap foot-bottom" style="padding:24px 0;border-top:none;">
+    <span>© 2026 Auto Escola Bahiense.</span>
+    <span>Salvador, Bahia.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
