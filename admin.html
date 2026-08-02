@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Administrativo — Auto Escola Bahiense</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Auto Escola<br><span class="sub" style="margin-left:35px;">BAHIENSE</span></a>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-ghost">Voltar ao site</a>
+    </div>
+  </nav>
+</header>
+
+<div id="admin-login-wrap" class="login-wrap">
+  <div class="login-card">
+    <div class="logo"><span class="logo-mark"></span>Bahiense</div>
+    <h1>Painel Administrativo</h1>
+    <p class="sub-txt">Acesso restrito à secretaria da autoescola.</p>
+
+    <form id="admin-login-form" novalidate>
+      <div class="field">
+        <label for="admin-pass">SENHA DE ACESSO</label>
+        <input type="password" id="admin-pass" placeholder="••••••••">
+        <span class="field-error" id="admin-login-error" style="display:none;">Senha incorreta.</span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Entrar no painel</button>
+    </form>
+    <p style="font-size:12px;color:var(--fog-faint);margin-top:14px;text-align:center;">Senha padrão de demonstração: bahiense2026</p>
+  </div>
+</div>
+
+<div id="admin-shell" class="admin-shell">
+  <div class="wrap">
+    <div class="admin-topbar">
+      <h1>Painel Administrativo</h1>
+      <button id="admin-logout" class="btn btn-ghost">Sair</button>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="num" id="stat-students">0</div><div class="lbl">alunos cadastrados</div></div>
+      <div class="admin-stat"><div class="num" id="stat-lessons">0</div><div class="lbl">aulas cadastradas</div></div>
+      <div class="admin-stat"><div class="num" id="stat-done">0</div><div class="lbl">aulas concluídas</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-alunos">Alunos</button>
+      <button class="tab-btn" data-tab="tab-aulas">Aulas</button>
+    </div>
+
+    <!-- ===== ALUNOS ===== -->
+    <div id="tab-alunos" class="tab-panel active">
+      <div class="admin-card">
+        <h3>Cadastrar novo aluno</h3>
+        <form id="student-form">
+          <div class="form-grid">
+            <div class="field"><label>NOME COMPLETO</label><input type="text" id="s-name" required></div>
+            <div class="field"><label>CPF (só números)</label><input type="text" id="s-cpf" required></div>
+            <div class="field"><label>TELEFONE</label><input type="text" id="s-phone" placeholder="(71) 90000-0000" required></div>
+            <div class="field">
+              <label>CATEGORIA</label>
+              <select id="s-category" class="status-select" style="width:100%;padding:12px 14px;">
+                <option value="B">B — Carro</option>
+                <option value="A">A — Moto</option>
+                <option value="A+B">Combo A+B</option>
+              </select>
+            </div>
+            <div class="field full"><label>SENHA DE ACESSO AO PORTAL</label><input type="text" id="s-password" placeholder="Ex: 123456"></div>
+          </div>
+          <button type="submit" class="btn btn-primary">Cadastrar aluno</button>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <h3>Alunos cadastrados</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Nome</th><th>CPF</th><th>Telefone</th><th>Categoria</th><th></th></tr></thead>
+            <tbody id="students-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== AULAS ===== -->
+    <div id="tab-aulas" class="tab-panel">
+      <div class="admin-card">
+        <h3>Agendar nova aula</h3>
+        <form id="lesson-form">
+          <div class="form-grid">
+            <div class="field full">
+              <label>ALUNO</label>
+              <select id="l-student" class="status-select" style="width:100%;padding:12px 14px;" required></select>
+            </div>
+            <div class="field">
+              <label>TIPO</label>
+              <select id="l-type" class="status-select" style="width:100%;padding:12px 14px;">
+                <option>Teórica</option>
+                <option>Prática</option>
+                <option>Exame DETRAN</option>
+              </select>
+            </div>
+            <div class="field"><label>INSTRUTOR</label><input type="text" id="l-instructor" placeholder="Nome do instrutor"></div>
+            <div class="field"><label>DATA</label><input type="date" id="l-date" required></div>
+            <div class="field"><label>HORÁRIO</label><input type="time" id="l-time" required></div>
+          </div>
+          <button type="submit" class="btn btn-primary">Agendar aula</button>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <h3>Aulas agendadas</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Aluno</th><th>Tipo</th><th>Data/Hora</th><th>Instrutor</th><th>Status</th><th></th></tr></thead>
+            <tbody id="lessons-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="border-top:1px solid var(--asphalt-line);">
+  <div class="wrap foot-bottom" style="padding:24px 0;border-top:none;">
+    <span>© 2026 Auto Escola Bahiense.</span>
+    <span>Painel interno · uso restrito.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
